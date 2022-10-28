@@ -2,6 +2,6 @@
 .DS_Store
 
 # sub-directories not to track
-
+references/
 
 # exceptions
