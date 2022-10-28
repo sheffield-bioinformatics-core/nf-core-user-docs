@@ -38,3 +38,39 @@ chmod +x aws-igenomes.sh
                  -b GRCh38 \
 
 
+## Mouse References
+
+./aws-igenomes.sh -g Mus_musculus \
+		  -s NCBI \
+		  -b GRCm38 \
+		  -t gtf
+
+./aws-igenomes.sh -g Mus_musculus \
+                  -s NCBI \
+                  -b GRCm38 \
+                  -t bed12
+
+./aws-igenomes.sh -g Mus_musculus \
+                  -s NCBI \
+                  -b GRCm38 \
+                  -t bwa
+
+./aws-igenomes.sh -g Mus_musculus \
+                  -s NCBI \
+                  -b GRCm38 \
+                  -t star
+
+./aws-igenomes.sh -g Mus_musculus \
+                  -s NCBI \
+                  -b GRCm38 \
+                  -t fasta
+
+./aws-igenomes.sh -g Mus_musculus \
+                  -s NCBI \
+                  -b GRCm38 \
+                  -t gtf
+
+
+
+
+
