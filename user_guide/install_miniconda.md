@@ -1,6 +1,12 @@
 # Install Miniconda as a Personal Software Module on ShARC
 
-Connect to ShARC via SSH and login to a worker node via an interactive session.
+This guide describes how to install miniconda as a personal software module on ShARC.
+
+Installing Nextflow and nf-core within a Conda environment using a personal miniconda module is currently the easiest way of making this software avaialble for general use. We are currently working to have Nextflow and nf-core made avaialble as software module on ShARC.
+
+The steps required to install miniconda are described below:
+
+Connect to ShARC via SSH and login to a worker node via an interactive session:
 
 ```shell
 # login
@@ -10,7 +16,7 @@ ssh -X username@sharc.shef.ac.uk
 qrsh -l rmem=4G -pe smp 2
 ```
 
-Navigate your folder within the data area of the file store.
+Navigate your folder within the data area of the file store:
 
 ```shell
 cd /data/$USER
@@ -55,13 +61,13 @@ by running conda init? [yes|no]
 [yes] >>> no
 ```
 
-Once the installer has run, delete the installation script.
+Once the installer has run, delete the installation script:
 
 ```shell
 rm Miniconda3-latest-Linux-x86_64.sh
 ```
 
-Now make a modules folder and module file.
+Now make a modules folder and module file:
 
 ```shell
 # modules folder
@@ -96,7 +102,7 @@ set MINICONDA_DIR /data/$env(USER)/miniconda/bin
 prepend-path PATH $MINICONDA_DIR
 ```
 
-Now run the following line to make your personal modules available for loading whenever you login.
+Now run the following line to make your personal modules available for loading whenever you login:
 
 ```shell
 echo "module use /home/$USER/modules" >> ~/.bashrc
@@ -107,5 +113,3 @@ The last thing to note here is that you should not load the anaconda environment
 For further information on making software available via a custom module file visit:
 
 [Making software available via a custom module file](https://docs.hpc.shef.ac.uk/en/latest/referenceinfo/environment-modules/creating-custom-modulefiles.html)
-
-
