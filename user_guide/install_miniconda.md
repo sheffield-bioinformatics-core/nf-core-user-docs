@@ -77,7 +77,7 @@ mkdir /home/$USER/modules
 nano /home/$USER/modules/miniconda
 ```
 
-Paste the below into the nano editor that opens upon running the final command. Note that this file is in Tcl not BASh, so environmental variable handing is different from the normal `$USER` for username.
+Copy and paste the below into the nano editor that opens upon running the final command. Note that this file is in Tcl not BASh, so environmental variable handing is different from the normal `$USER` for username.
 
 ```
 #%Module10.2#####################################################################
@@ -101,6 +101,8 @@ set MINICONDA_DIR /data/$env(USER)/miniconda/bin
 
 prepend-path PATH $MINICONDA_DIR
 ```
+
+Use “Ctrl + O” to write-out the changes, hit “Return” to confirm the file name, and then “Ctrl + X” to close the nano editor.
 
 Now run the following line to make your personal modules available for loading whenever you login:
 
