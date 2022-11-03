@@ -3,6 +3,7 @@
 
 # sub-directories not to track
 references/
+apptainer-cache/
 
 # exceptions
 aws-igenomes.sh
