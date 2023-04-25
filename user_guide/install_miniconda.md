@@ -104,10 +104,11 @@ prepend-path PATH $MINICONDA_DIR
 
 Use “Ctrl + O” to write-out the changes, hit “Return” to confirm the file name, and then “Ctrl + X” to close the nano editor.
 
-Now run the following line to make your personal modules available for loading whenever you login:
+Now run the following lines to make your personal modules available for loading immediately and whenever you login:
 
 ```shell
 echo "module use /home/$USER/modules" >> ~/.bashrc
+source ~/.bashrc
 ```
 
 The last thing to note here is that you should not load the anaconda environmental module available to all HPC users and the personal miniconda module you have just made at the same time.
