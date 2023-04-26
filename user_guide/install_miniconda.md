@@ -2,7 +2,7 @@
 
 This guide describes how to install miniconda as a personal software module on ShARC.
 
-Installing Nextflow and nf-core within a Conda environment using a personal miniconda module is currently the easiest way of making this software avaialble for general use. We are currently working to have Nextflow and nf-core made avaialble as software module on ShARC.
+Installing Nextflow and nf-core within a Conda environment using a personal miniconda module is currently the easiest way of making this software available for general use. We are currently working to have Nextflow and nf-core made available as software module on ShARC.
 
 The steps required to install miniconda are described below:
 
