@@ -1,25 +1,25 @@
-# Install Miniconda as a Personal Software Module on ShARC
+# Install Miniconda as a Personal Software Module on Stanage
 
-This guide describes how to install miniconda as a personal software module on ShARC.
+This guide describes how to install miniconda as a personal software module on Stanage.
 
-Installing Nextflow and nf-core within a Conda environment using a personal miniconda module is currently the easiest way of making this software available for general use. We are currently working to have Nextflow and nf-core made available as software module on ShARC.
+Installing Nextflow and nf-core within a Conda environment using a personal miniconda module is currently the easiest way of making this software available for general use.
 
 The steps required to install miniconda are described below:
 
-Connect to ShARC via SSH and login to a worker node via an interactive session:
+Connect to Stanage via SSH and login to a worker node via an interactive session:
 
 ```shell
-# login
-ssh -X username@sharc.shef.ac.uk
+# login - substitute "username" with your own username
+ssh username@stanage.shef.ac.uk
 
-# request a command line only interactive session - some extra resources prevent issues building conda env later
-qrsh -l rmem=4G -pe smp 2
+# request a command line only interactive session - extra resources prevent issues building conda env later
+srun --cpus-per-task=2 --mem=8G --pty bash -i
 ```
 
-Navigate your folder within the data area of the file store:
+Navigate the users home folder within the file store:
 
 ```shell
-cd /data/$USER
+cd /users/$USER
 ```
 
 Download and run the miniconda installer by running the following series of commands:
@@ -40,7 +40,7 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 The miniconda installer will now run and walk you through the install process. There are two **IMPORTANT** things you must take note of at this point:
 
-1. You will have to overwrite the default install path when prompted by the miniconda installer to check the install path - the directory to which the install is attempted should be `/data/$USER/miniconda`.
+1. You will have to overwrite the default install path when prompted by the miniconda installer to check the install path - the directory to which the install is attempted should be `/users/$USER/miniconda`.
 
 ```
 Miniconda3 will now be installed into this location:
@@ -50,7 +50,7 @@ Miniconda3 will now be installed into this location:
   - Press CTRL-C to abort the installation
   - Or specify a different location below
 
-[/<path>/<to>/miniconda3] >>> /data/$USER/miniconda
+[/<path>/<to>/miniconda3] >>> /users/$USER/miniconda
 ```
 
 2. **DO NOT** initialize miniconda at the end of the install process when prompted as shown here:
@@ -71,18 +71,18 @@ Now make a modules folder and module file:
 
 ```shell
 # modules folder
-mkdir /home/$USER/modules
+mkdir /users/$USER/modules
 
 # module file
-nano /home/$USER/modules/miniconda
+nano /users/$USER/modules/miniconda
 ```
 
 Copy and paste the below into the nano editor that opens upon running the final command. Note that this file is in Tcl not BASh, so environmental variable handing is different from the normal `$USER` for username.
 
 ```
-#%Module10.2#####################################################################
+#%Module1.0#####################################################################
 ##
-## user data directory miniconda module file
+## user miniconda module file
 ##
 ################################################################################
 
@@ -97,7 +97,7 @@ module-whatis "Makes a user's personal install of Miniconda available."
 
 # module variables
 
-set MINICONDA_DIR /data/$env(USER)/miniconda/bin
+set MINICONDA_DIR /users/$env(USER)/miniconda/bin
 
 prepend-path PATH $MINICONDA_DIR
 ```
@@ -107,7 +107,7 @@ Use “Ctrl + O” to write-out the changes, hit “Return” to confirm the fil
 Now run the following lines to make your personal modules available for loading immediately and whenever you login:
 
 ```shell
-echo "module use /home/$USER/modules" >> ~/.bashrc
+echo "module use /users/$USER/modules" >> ~/.bashrc
 source ~/.bashrc
 ```
 
