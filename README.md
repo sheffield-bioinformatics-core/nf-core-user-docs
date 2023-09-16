@@ -1,8 +1,8 @@
-## SBC Guide to Running Nextflow with nf-core Pipelines on ShARC
+## Running Nextflow with nf-core Pipelines on TUoS Stanage Cluster
 
-This guide describes the main steps required for setting up Nextflow and nf-core on ShARC.
+This guide describes the main steps required for setting up Nextflow and nf-core on TUoS Stanage Cluster.
 
-Nextflow is not currently available on ShARC as an environmental software module. The simplest solution is to install Nextflow and nf-core into a Conda environment using a personal install of miniconda. These processes are described as part of this guide.
+The simplest solution to running Nextflow and nfcore pipelines on Stanage while ensuring all dependencies are available and correctly managed is to install Nextflow and nf-core into a Conda environment using a personal install of miniconda. These processes are described as part of this guide.
 
 Click on a link to get started:
 
