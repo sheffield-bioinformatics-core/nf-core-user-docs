@@ -1,6 +1,6 @@
 # Setup your Project and Configure your Run
 
-The Sheffield Bioinformatics Core suggest that you run all of your projects from the `/fastdata` file store but you may choose to run them from elsewhere.
+The Sheffield Bioinformatics Core suggest that you run all of your projects from the `parscratch` file store but you may choose to run them from elsewhere.
 
 Whichever file store you decide to locate your project root directory in, the assumed project sub-directory structure within this guide is as follows:
 
@@ -15,7 +15,7 @@ Whichever file store you decide to locate your project root directory in, the as
     └── script
 ```
 
-This directory tree can be established by running the command shown below. Please ensuring that you change `filestore` to the actual name of the filestore you wish to locate your project within e.g., `fastdata` and that you change `project_root` to the name of the project e.g., `2022_10_31_demo_project`
+This directory tree can be established by running the command shown below. Please ensuring that you change `filestore` to the actual name of the filestore you wish to locate your project within e.g., `parscratch` and that you change `project_root` to the name of the project e.g., `2023_01_01_demo_project`
 
 ```bash
 # setup project directory structure

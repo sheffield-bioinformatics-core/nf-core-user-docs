@@ -1,34 +1,25 @@
 #!/bin/bash
 
-## SGE scheduler flags
+## scheduler flags
 
 # job name  >>> edit "pipeline_name" for the name of the pipeline you are running e.g. rnaseq <<<
-#$ -N nf-pipeline_name
-
-# specify queue and project for the nextflow driver job  >>> edit if using a priority queue else delete both <<<
-#$ -q queue_name.q
-#$ -P queue_name
+#SBATCH --job-name=pipeline_name
 
 # request resources for the nextflow driver job
-#$ -pe smp 1
-#$ -l rmem=2G
-
-# export environmental variables in current shell environment to job
-#$ -V
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=3G
 
 # send email >>> edit "username" <<<
-#$ -M username@sheffield.ac.uk
-#$ -m beas
-
-# merge standard error stream into the standard output stream
-#$ -j y
+#SBATCH --mail-user=username@sheffield.ac.uk
+#SBATCH --mail-type=BEGIN,END,FAIL
 
 # output log file
-#$ -o nextflow.log
+#SBATCH --output=nextflow.log
 
 
 ## load miniconda module and activate analysis environment
 
+module purge
 module load miniconda
 source activate nf_env
 
@@ -39,12 +30,12 @@ source activate nf_env
 export NXF_OPTS="-Xms1g -Xmx2g"
 
 # path to singularity cache
-export NXF_SINGULARITY_CACHEDIR="/home/$USER/.singularity"
+export NXF_SINGULARITY_CACHEDIR="/users/$USER/.singularity"
 
 # project name  >>> edit "project_name" so that it is the name of your project root directory <<<
 PROJECT="project_name"
 
-# project directories  >>> edit the name of the "filestore" e.g. fastdata <<<
+# project directories  >>> edit the name of the "filestore" e.g. /mnt/parscratch/users <<<
 PARAM_DIR="/filestore/$USER/$PROJECT/params"
 CONFIG_DIR="/filestore/$USER/$PROJECT/config"
 
@@ -53,7 +44,6 @@ CONFIG_DIR="/filestore/$USER/$PROJECT/config"
 
 nextflow run nf-core/pipeline \
 -r version \
--profile sbc_sharc \
+-profile tuos_stanage \
 -resume \
 -params-file ${PARAM_DIR}/nf-params.json
-
