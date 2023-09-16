@@ -11,4 +11,6 @@ Click on a link to get started:
 3. [Setup your project directory and configure your run](./user_guide/project_setup.md)
 4. [Job Submission](./user_guide/job_submission.md)
 
+A custom institutional configuration profile `tuos_stanage` has been provided by for users by SBC which will automatically load pre-tested pipeline specific configurations to take care of resource requests for you. For more information see [here](https://github.com/nf-core/configs/blob/master/docs/tuos_stanage.md).
+
 If you have any questions or issues not addressed by this guide, please contact: [bioinformatics-core@sheffield.ac.uk](mailto:bioinformatics-core@sheffield.ac.uk)
