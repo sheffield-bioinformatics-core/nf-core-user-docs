@@ -8,6 +8,7 @@
 # request resources for the nextflow driver job
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=3G
+#SBATCH --time=96:00:00
 
 # send email >>> edit "username" <<<
 #SBATCH --mail-user=username@sheffield.ac.uk
